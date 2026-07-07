@@ -24,7 +24,10 @@ public class DataSeeder implements CommandLineRunner {
                     new Course("Spring Boot Basic", "Introduction to Spring Boot framework", "Tran Van B", 750.0),
                     new Course("React JS for Beginners", "Frontend development with React JS", "Le Thi C", 600.0),
                     new Course("Python Programming", "Learn Python programming from scratch", "Pham Van D", 450.0),
-                    new Course("Advanced Database Design", "Relational database concepts and sql", "Hoang Thi E", 900.0)
+                    new Course("Advanced Database Design", "Relational database concepts and sql", "Hoang Thi E", 900.0),
+                    new Course("HTML & CSS Basics", "Introduction to web styling", "Vu Thi F", 200.0),
+                    new Course("JavaScript Advanced", "Deep dive into JS and Async programming", "Ngo Van G", 550.0),
+                    new Course("Node.js & Express", "Backend development using JavaScript", "Dinh Van H", 700.0)
             ));
             System.out.println("Sample courses seeded successfully.");
         }

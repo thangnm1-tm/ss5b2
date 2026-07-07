@@ -1,5 +1,6 @@
 package com.example.course_management.service;
 
+import com.example.course_management.dto.PageResponse;
 import com.example.course_management.dto.CourseResponse;
 import com.example.course_management.model.Course;
 import com.example.course_management.repository.CourseRepository;
@@ -18,7 +19,7 @@ public class CourseService {
         this.courseRepository = courseRepository;
     }
 
-    public Page<CourseResponse> getPagedCourses(int page, int size, String sortBy, Sort.Direction direction) {
+    public PageResponse<CourseResponse> getPagedCourses(int page, int size, String sortBy, Sort.Direction direction) {
         // Safety check for page parameter
         if (page < 0) {
             page = 0;
@@ -38,12 +39,14 @@ public class CourseService {
         Page<Course> coursePage = courseRepository.findAll(pageable);
 
         // Map Page<Course> to Page<CourseResponse>
-        return coursePage.map(course -> new CourseResponse(
+        Page<CourseResponse> responsePage = coursePage.map(course -> new CourseResponse(
                 course.getId(),
                 course.getTitle(),
                 course.getDescription(),
                 course.getInstructor(),
                 course.getPrice()
         ));
+
+        return new PageResponse<>(responsePage);
     }
 }
